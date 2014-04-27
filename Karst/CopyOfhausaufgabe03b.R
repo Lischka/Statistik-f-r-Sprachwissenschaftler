@@ -1,7 +1,7 @@
 # Hausaufgabe 03
 # Lischka <karst@students.uni-marburg.de>
-# 2014-04-26
-# Dieses Werk ist lizenziert unter einer CC-BY-NC-SA Lizenz.
+# 2014-04-27
+# Diese Datei darf nur Prüfungszwecken dienen
 
 # Sie sollten die Datei auch in Ihren Ordner kopieren und einen Commit machen, 
 # bevor Sie die Kopie weiter anpassen! Vergessen Sie dabei nicht, Namen, Datum
@@ -117,7 +117,10 @@ print (modus)
 # Wenn nicht, ist der Code oben korrekt? Warum?
 # Schreiben Sie Ihre Antwort als Comment hier.
 
-# antwort_hier
+# Nein, es sind auch mehrere Modalwerte möglich. 
+# Das passiert zum Beispiel, wenn in einer Menge mehrere Elemente mit gleicher maximalen Häufigkeit vorkommen. 
+# {1, 2, 4, 5, 5, 2, 4, 4, 5} Die Modalwerte sind bei deiser Menge 4 und 5, weil beide mit einer maximalen Häufigkeit von 3 vorkommen.
+# Ja, der Code ist korrekt. Es gibt nur eine maximale Häufigkeit (w).
 
 # Als Abscheid ein Beispiel mit der Darstellung Frequenzdaten mit Säulendiagramm
 # bzw. Histogramm
