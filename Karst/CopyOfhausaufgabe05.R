@@ -71,7 +71,7 @@ print( weight.grafik.basis + geom_density(aes(color=sex,fill=sex),alpha=0.5) )
 # auch Größe anschauen. Sind die Studenten mancher Studiengänge größer als die anderen?
 # Weil wir deutlich weniger Männer haben und es einen bekannten Unterschied in der Größe 
 # zwischen Männern und Frauen gibt, schließen wir erstmal die Männer aus:
-women <- subset (dat, sex =="f")
+frauen <- subset(dat, sex=="f")
 
 # (Sie sollten sich wirklich überlegen, ob der Schritt "gut" ist. Haben wir 
 # dadurch unsre Ergebnisse verstellt? Sie müssen hier nichts schreiben, aber 
@@ -85,16 +85,18 @@ women <- subset (dat, sex =="f")
 #sollten Sie die Plots so machen, damit man einen Vergleich zwischen den Gruppen
 #ziehen kann. Dafür gibt es verschiedene Möglichkeiten; die Wahl bleibt Ihnen
 #überlassen. frauen.studiengang.bw <- CODE_HIER print(frauen.studiengang.bw)
-height.womenbw <- height.grafik.basis + geom_boxplot(aes(x="height",y=height))
-print(height.womenbw)
+frauen.studiengang.bw <- ggplot(data=frauen,aes(x=major)) + geom_boxplot(aes(x=major,y=height))
+print(frauen.studiengang.bw)
+
 # Sehen die Studiengängeanders aus? Wir müssen hier noch relativ vorrsichtig
 # sein, weil die Gruppen *unbalanziert* sind, d.h. die Gruppen sind
 # unterschiedlich groß. Aber wie sieht der Vergleich auf den ersten Blick aus?
 # (Keine explizite Antwort nötig, nur eine Überlegung.)
 
 # Wir können natürlich auch die Dichte anschauen:
-#frauen.studiengang.dichte <- CODE_HIER
-#print(frauen.studiengang.dichte)
+frauen.studiengang.dichte <- ggplot(data=frauen,aes(x=major)) + geom_density(aes(x=height,color=major,fill=major),alpha=0.5)
+print(frauen.studiengang.dichte)
+
 
 # Haben Sie den gleichen Eindruck wie bei Box-Whisker bekommen? Unterscheiden
 # sich die Gruppen?
@@ -110,7 +112,7 @@ print(height.womenbw)
 klinisch <- frauen[frauen$major == "M.A..Klinische.Linguistik",]
 print(klinisch)
 
-# Das sieht erstmal sehr vervwirrend aus, ist es aber nicht. Die eckigen
+# Das sieht erstmal sehr verwirrend aus, ist es aber nicht. Die eckigen
 # Klammern bestimmen die Auswahl an Elementen. Wir haben das ja bei Indizen in
 # Vektoren schon gesehen. Man kann eigentlich Indizen oder logische
 # Einschränkungen nutzen, und das gleiche gilt für Data Frames. Bei Data Frames
@@ -124,18 +126,42 @@ print(klinisch)
 # Jetzt brauchen wir die Teilmenge für die anderen beiden Studiengänge, 
 # Linguistik Kognition und Kommunikation und Speech Science
 # HINT: wie sehen die Namen aus bzw. wie werden sie im data frame buchstabiert?
-linkk <- frauen[CODE_HIER]
-speech <- frauen[CODE_HIER] 
-
+linkk <-  frauen[frauen$major == "M.A..Linguistik.Kognition.und.Kommunikation",]
+print(linkk)
+speech <- frauen[frauen$major == "M.A..Speech.Science",] 
+print(speech)
 # Berechnen Sie -- ohne Hilfe von sd() -- die Standardabweichung für die Größe der drei 
 # Gruppen. Sie können auch weitere Zeilen hinzufügen, wenn es Ihnen so leichter
 # ist. 
 # HINT: Formel und Beispiel für die Berechnung auf den Folien!
-klinisch.sd <- CODE_HIER
-linkk.sd <- CODE_HIER
-speech.sd <- CODE_HIER
+#klinisch.sd 
+a <- (klinisch$height)
+abweichung.klinisch <- a - mean(a)
+quadr.abweichung.klinisch <- abweichung.klinisch^2
+varianz.a <- mean(quadr.abweichung.klinisch)
+print(varianz.a)
+
+#linkk.sd
+b <- (linkk$height)
+abweichung.linkk <- b - mean(b)
+quadr.abweichung.linkk <- abweichung.linkk^2
+varianz.b <- mean(quadr.abweichung.linkk)
+print(varianz.b)
+
+linkk.sd <- sqrt(varianz.b)
+print(linkk.sd)
+
+#speech.sd 
+c <- (speech$height)
+abweichung.speech <- c - mean(c)
+quadr.abweichung.speech <- abweichung.speech^2
+varianz.c <- mean(quadr.abweichung.speech)
+print(varianz.c)
+
+speech.sd <- sqrt(varianz.c)
+print(speech.sd)
 
 # Berichten Sie jetzt die Mittelwerte und Standardabweichungen für die drei Gruppen. Die erste Gruppe steht hier als Muster:
 print( paste("Studiengang: Klinische Linguistik","Mean:",mean(klinisch$height),"SD:",klinisch.sd) )
-CODE_HIER
-
+print( paste("Studiengang: Linguistik Kognition und Kommunikation","Mean:",mean(linkk$height),"SD:",linkk.sd) )
+print( paste("Studiengang: Speech Science","Mean:",mean(speech$height),"SD:",speech.sd) )
