@@ -1,6 +1,6 @@
 # Hausaufgabe 04
 # Lischka <karst@students.uni-marburg.de>
-# 2014-05-01
+# 2014-05-04
 # Dieses Werk darf nur zu Prüfungszwecken dienen.
 
 # Sie sollten die Datei auch in Ihren Ordner kopieren und einen Commit machen, 
