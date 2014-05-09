@@ -84,19 +84,20 @@ for(s in c(3,4,5) ){
 
 Aber wir hoffen alle, dass wir doch eine gute Note bekommen. Fügen Sie einen Code-Block hier ein, der das gleiche aber mit "ausgezeichneten" Noten (=1 bzw. >= 13) macht. (Bei evtl. Copy-Paste nicht vergessen, "fallen...durch" durch etwas Passendes zu ersetzen!)  
 
-> for(s in c(3,4,5) ){
-+     ausgezeichnet <- pnorm(13,mean=mu,sd=s,lower.tail=FALSE)
-+     output <- paste("Bei einer Standabweichung von",s, "haben"
-+                     ,ausgezeichnet*100,"% ausgezeichnet.")
-+     print(output)}
+```{r}
+for(s in c(3,4,5) ){
+  ausgezeichnet <- pnorm(13,mean=mu,sd=s, lower.tail=FALSE)
+  output <- paste("Bei einer Standabweichung von",s, "haben",ausgezeichnet*100,"% ausgezeichnet.")
+  print(output)
+}
+```
+
 
 Wie steht die Anzahl guter Noten in Beziehung zur Anzahl schlechter Noten? 
 
-antwort_hier
+Die Anzahl der schlechten Noten ist höher, als die Anzahl der guten Noten, da es mehr Möglichkeiten gibt "schlechte Noten" zu erzielen (Notenpunkte 1,2,3,4,5 sind schlecht, was insgesamt 5 Möglichkeiten für schlechte Noten ergibt). Dagegen kann man ein "ausgezeichnet" nur im Rahmen von drei möglichen Noten erzielen (13,14,15 Notenpunkte)
 
-Warum?
 
-antwort_hier
 
 ## Kurtosis und Schiefe
 Kurtosis (im Deutschen auch *Wölbung*) ist ein Maß dafür, wie spitz eine Verteilung ist. Die Normalverteilung wird nie zu extrem spitz -- der Gipfel bleibt immer schön rund, obwohl er manchmal eng wird. Andere Verteilungen (z.B. die Laplace-Verteilung ) haben Gipfel, die nicht rund sind.   
