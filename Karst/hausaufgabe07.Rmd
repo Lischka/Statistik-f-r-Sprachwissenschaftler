@@ -95,7 +95,7 @@ for(s in c(3,4,5) ){
 
 Wie steht die Anzahl guter Noten in Beziehung zur Anzahl schlechter Noten? 
 
-Die Anzahl der schlechten Noten ist höher, als die Anzahl der guten Noten, da es mehr Möglichkeiten gibt "schlechte Noten" zu erzielen (Notenpunkte 1,2,3,4,5 sind schlecht, was insgesamt 5 Möglichkeiten für schlechte Noten ergibt). Dagegen kann man ein "ausgezeichnet" nur im Rahmen von drei möglichen Noten erzielen (13,14,15 Notenpunkte)
+Die Anzahl der schlechten Noten ist höher, als die Anzahl der guten Noten, da es mehr Möglichkeiten gibt "schlechte Noten" zu erzielen (Notenpunkte 1,2,3,4 sind schlecht, was insgesamt 4 Möglichkeiten für schlechte Noten ergibt). Dagegen kann man ein "ausgezeichnet" nur im Rahmen von drei möglichen Noten erzielen (13,14,15 Notenpunkte)
 
 
 
