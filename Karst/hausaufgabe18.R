@@ -69,6 +69,7 @@ summary(lm_x2)
 #   = 1.5*x2
 # Das sind doch due Regressionkoeffizienten!
 
+
 #            Estimate    
 #(Intercept) -4.494e-15
 #x1           3.000e+00
