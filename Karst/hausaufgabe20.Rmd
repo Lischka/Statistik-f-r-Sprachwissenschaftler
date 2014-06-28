@@ -1,6 +1,6 @@
 % Hausaufgabe 20
 % Lisa Karst <karst@students.uni-marburg.de>
-% 2014-06-25
+% 2014-06-28
 
 Falls die Umlaute in dieser und anderen Dateien nicht korrekt dargestellt werden, sollten Sie File > Reopen with Encoding > UTF-8 sofort machen (und auf jeden Fall ohne davor zu speichern), damit die Enkodierung korrekt erkannt wird! 
 
@@ -78,7 +78,7 @@ ggplot(stimmen) + geom_boxplot(aes(x=subject,y=frequency))
 
 Machen Sie das gleiche für `scenario`. 
 
-UNSICHER! ggplot(stimmen) + geom_boxplot(aes(x=scenario,y=frequency))
+ggplot(stimmen) + geom_boxplot(aes(x=scenario,y=frequency))
 
 Gibt es mehr Varianz zwischen Szenarien oder zwischen Versuchspersonen? 
 
@@ -111,8 +111,8 @@ Haben sich die Koeffizienten oder Standardfehler geändert?
 Jetzt berechen wir das Modell mit der Interaktion zwischen `gender` und `attitude`. 
 
 ```{r}
-#model.attitude.int <- CODE_HIER
-#summary(model.attitude.int)
+model.attitude.int <- lmer(frequency ~ gender*attitude + (1|subject) + (1|scenario), data=stimmen, RMEL=FALSE)
+summary(model.attitude.int)
 ```
 
 Haben sich die Koeffizienten oder Standardfehler geändert?
@@ -138,7 +138,9 @@ Haben sich die Koeffizienten oder Standardfehler (im Vergleich zu `model.attitud
 
 Hat dieses Modell ein signifikante besseres Fit als `model.attitude`? 
 
-CODE_BLOCK_HIER
+```{r}
+anova(model.attitude, model.attitude.re.slope)
+``` 
 
 Könnten wir hier ein Intercepts-Only-Modell begründen? 
 
